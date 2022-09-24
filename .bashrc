@@ -100,25 +100,25 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias clear='clear -x'
-alias cl='clear -x'
-alias vi='vim'
-alias v='nvim'
-alias ..='cd ..'
-alias reload='source ~/.bashrc'
-alias g='git'
-alias gs='git status'
-alias ga='git add'
-alias gcom='git commit -v'
-alias gp='git push'
-alias apconfig='sudo ansible-pull -U https://github.com/eb0687/ansible_server.git'
-alias f='fzf'
-alias tm='tmat'
-alias tma='tmux attach'
-alias tmd='tmux detach'
+# alias ll='ls -alF'
+# alias la='ls -A'
+# alias l='ls -CF'
+# alias clear='clear -x'
+# alias cl='clear -x'
+# alias vi='vim'
+# alias v='nvim'
+# alias ..='cd ..'
+# alias reload='source ~/.bashrc'
+# alias g='git'
+# alias gs='git status'
+# alias ga='git add'
+# alias gcom='git commit -v'
+# alias gp='git push'
+# alias apconfig='sudo ansible-pull -U https://github.com/eb0687/ansible_server.git'
+# alias f='fzf'
+# alias tm='tmat'
+# alias tma='tmux attach'
+# alias tmd='tmux detach'
 # alias tmls='tmux list-session'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -130,8 +130,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.bashtools/.alias.bash ]; then
+    . ~/.bashtools/.alias.bash
 fi
 
 # enable programmable completion features (you don't need to enable
