@@ -1,0 +1,13 @@
+[user]
+    name = eb0687
+    email = ebrahim0687@gmail.com
+[alias]
+    lg = log --oneline --decorate --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    co = commit -v
+    st = status
+[pull]
+    ff = only
+[init]
+    defaultBranch = main
+[core]
+    editor = nvim
