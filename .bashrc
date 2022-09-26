@@ -153,6 +153,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# ssh fix
+if [ -z ${TMUX+x} ]; then
+# Not in a TMUX session
+if [ ! -S ~/.ssh/ssh_auth_sock ] && [ -S "$SSH_AUTH_SOCK" ]; then
+ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+fi
+else
+# In TMUX session
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+fi
+
 # # starship config
 # export STARSHIP_CONFIG=~/.config/starship/starship.toml
 # eval "$(starship init bash)"
