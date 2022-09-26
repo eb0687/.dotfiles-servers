@@ -51,4 +51,5 @@ export DOTBARE_DIR="$HOME/.dotfiles"
 export DOTBARE_TREE="$HOME"
 export DOTBARE_FZF_DEFAULT_OPTS="--preview-window=right:65%"
 export EDITOR='nvim'
+alias dots=dotbare
 # END ANSIBLE MANAGED BLOCK
