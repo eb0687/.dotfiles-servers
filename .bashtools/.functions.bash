@@ -15,6 +15,13 @@ function cu {
     cd $path
 }
 
+# FZF functions
 open-at-line () {
   nvim $(rg --line-number . | fzf --delimiter ':' --preview 'bat --color=always --highlight-line {2} {1}' | awk -F ':' '{print "+"$2" "$1}')
+}
+
+# Git functions
+function gcoma () {
+    git add .
+    git commit -m "$1"
 }
