@@ -1,7 +1,3 @@
-# starship config
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init bash)"
-
 # find out which distribution we are running on
 LFILE="/etc/*-release"
 MFILE="/System/Library/CoreServices/SystemVersion.plist"
@@ -40,6 +36,11 @@ case $_distro in
 esac
 
 export STARSHIP_DISTRO="$ICON"
+
+
+# starship config
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init bash)"
 
 # pfetch
 PF_ASCII=ubuntu pfetch
