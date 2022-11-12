@@ -20,6 +20,10 @@ open-at-line () {
   nvim $(rg --line-number . | fzf --delimiter ':' --preview 'bat --color=always --highlight-line {2} {1}' | awk -F ':' '{print "+"$2" "$1}')
 }
 
+function falias(){
+    alias | cut -c 7- | fzf
+}
+
 # Git functions
 function gcoma () {
     git add .
