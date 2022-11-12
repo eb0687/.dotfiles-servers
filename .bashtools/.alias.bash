@@ -17,8 +17,8 @@ alias ..='cd ..'
 
 # git
 alias g='git'
-alias gs='git status'
-alias ga='git add'
+# alias gs='git status'
+# alias ga='git add'
 alias gcom='git commit -v'
 alias gp='git push'
 alias glf='git ls-files'

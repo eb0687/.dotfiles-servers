@@ -37,7 +37,6 @@
 
 export STARSHIP_DISTRO=""
 
-
 # starship config
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
@@ -76,6 +75,9 @@ export FZF_ALT_C_OPTS="
         "
 
 source /usr/share/doc/fzf/examples/key-bindings.bash
+
+# forgit
+source $HOME/.github/forgit/forgit.plugin.sh
 
 # fzf tab completion
 source ~/.bashtools/fzf-bash-completion.sh
