@@ -76,9 +76,6 @@ export FZF_ALT_C_OPTS="
 
 source /usr/share/doc/fzf/examples/key-bindings.bash
 
-# forgit
-source $HOME/.github/forgit/forgit.plugin.sh
-
 # fzf tab completion
 source ~/.bashtools/fzf-bash-completion.sh
 bind -x '"\t": fzf_bash_completion'
