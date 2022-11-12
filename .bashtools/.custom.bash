@@ -94,5 +94,5 @@ export DOTBARE_TREE="$HOME"
 export DOTBARE_FZF_DEFAULT_OPTS="--preview-window=right:65%"
 export EDITOR='nvim'
 alias dots=dotbare
-bind -x '"\C-i":"dotbare fedit"'
+bind -x '"\C-n":"dotbare fedit"'
 # END ANSIBLE MANAGED BLOCK
