@@ -35,9 +35,9 @@
 #     *)                       ICON="";;
 # esac
 
-export STARSHIP_DISTRO=""
 
 # starship config
+export STARSHIP_DISTRO=""
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 
@@ -68,7 +68,7 @@ export FZF_CTRL_T_OPTS="
         --header='SEARCH FILES'
         "
 
-export FZF_ALT_C_COMMAND='fdfind --type d --color=never --hidden --exclude .git --search-path=$HOME'
+export FZF_ALT_C_COMMAND="fdfind --type d --color=never --hidden --exclude .git --search-path=$HOME"
 export FZF_ALT_C_OPTS="
         --preview 'tree -C {} | head  -50'
         --header='CHANGE DIRECTORY'
@@ -77,8 +77,11 @@ export FZF_ALT_C_OPTS="
 source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # fzf tab completion
-source ~/.bashtools/fzf-bash-completion.sh
+source $HOME/.bashtools/fzf-bash-completion.sh
 bind -x '"\t": fzf_bash_completion'
+
+# fzf-marks
+source $HOME/.github/fzf-marks/fzf-marks.plugin.bash
 
 # keybinds
 bind -x '"\C-f":"tmux-sessionizer"'
