@@ -1,6 +1,6 @@
 # general
-alias ll='ls -lF'
-alias la='ls -lFa'
+alias ll='ls -lFh'
+alias la='ls -lFah'
 alias l='ls -CF'
 alias clear='clear -x'
 alias cl='clear -x'
