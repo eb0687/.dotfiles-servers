@@ -37,12 +37,18 @@ ansible-role-fd() {
 
     if [[ -d $ANSIBLE_ROLE_DIR ]]; then
         if [[ -d $FD_RESULT ]]; then
-            cd $FD_RESULT
+            cd "$FD_RESULT" || exit
         elif [[ -f $FD_RESULT ]]; then
-            /usr/bin/nvim $FD_RESULT
+            /usr/bin/nvim "$FD_RESULT"
         fi
     else
         echo -e "\n$ANSIBLE_ROLE_DIR does not exist, are you sure you have ansible installed on this device?"
         echo -e "\nCheck using the command: whereis ansible"
     fi
+}
+
+# a better clear command
+function cl () {
+    clear -x
+    ls -lFh
 }
