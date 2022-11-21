@@ -5,6 +5,9 @@
 ###################################################################################
 
 set -o vi
+bind 'set show-mode-in-prompt on'
+bind 'set vi-ins-mode-string ""'
+bind 'set vi-cmd-mode-string ""'
 
 # Ensures I am always in a TMUX session
 # ~/.local/bin/ta
