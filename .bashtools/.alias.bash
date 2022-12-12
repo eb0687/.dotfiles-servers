@@ -1,7 +1,7 @@
 # general
-alias ll='ls -lFh'
-alias la='ls -lFah'
-alias l='ls -CF'
+alias ll='ls -lFh --group-directories-first'
+alias la='ls -lFah --group-directories-first'
+alias l='ls -CF --group-directories-first'
 alias clear='clear -x'
 # alias cl='clear -x'
 alias vi='vim'
