@@ -50,5 +50,5 @@ ansible-role-fd() {
 # a better clear command
 function cl () {
     clear -x
-    ls -lFh
+    ls -lFh --group-directories-first
 }
