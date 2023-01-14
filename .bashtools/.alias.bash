@@ -34,3 +34,7 @@ alias tmd='tmux detach'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+# docker
+alias docker-ps='docker ps -a'
+alias docker-exec='docker exec -it'
