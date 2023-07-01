@@ -101,6 +101,20 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview-window=nohidden --preview 'tree -C {} | head -200'   "$@" ;;
+    export|unset) fzf --preview-window=nohidden --preview "eval 'echo \$'{}"         "$@" ;;
+    ssh)          fzf --preview-window=nohidden --preview 'dig {}'                   "$@" ;;
+  esac
+}
+
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 

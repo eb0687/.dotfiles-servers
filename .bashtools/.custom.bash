@@ -70,9 +70,24 @@ export FZF_CTRL_T_OPTS="
 
 export FZF_ALT_C_COMMAND="fdfind --type d --color=never --hidden --exclude .git --search-path=$HOME"
 export FZF_ALT_C_OPTS="
+        --preview-window=nohidden
         --preview 'tree -C {} | head  -50'
         --header='CHANGE DIRECTORY'
         "
+
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview-window=nohidden --preview 'tree -C {} | head -200'   "$@" ;;
+    export|unset) fzf --preview-window=nohidden --preview "eval 'echo \$'{}"         "$@" ;;
+    ssh)          fzf --preview-window=nohidden --preview 'dig {}'                   "$@" ;;
+  esac
+}
 
 source /usr/share/doc/fzf/examples/key-bindings.bash
 
