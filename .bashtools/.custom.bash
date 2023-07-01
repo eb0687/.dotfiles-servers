@@ -87,7 +87,6 @@ _fzf_comprun() {
     export|unset) fzf --preview-window=nohidden --preview "eval 'echo \$'{}"         "$@" ;;
     ssh)          fzf --preview-window=nohidden --preview 'dig {}'                   "$@" ;;
     *)            fzf --preview-window=nohidden --preview 'bat -n --color=always {}' "$@" ;;
-
   esac
 }
 
