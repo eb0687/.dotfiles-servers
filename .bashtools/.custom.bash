@@ -86,6 +86,8 @@ _fzf_comprun() {
     cd)           fzf --preview-window=nohidden --preview 'tree -C {} | head -200'   "$@" ;;
     export|unset) fzf --preview-window=nohidden --preview "eval 'echo \$'{}"         "$@" ;;
     ssh)          fzf --preview-window=nohidden --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview-window=nohidden --preview 'bat -n --color=always {}' "$@" ;;
+
   esac
 }
 
