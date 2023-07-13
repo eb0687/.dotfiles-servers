@@ -57,7 +57,7 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 if [[ -f "$HOME/.github/fzf/shell/completion.bash" ]]; then
     source "$HOME/.github/fzf/shell/completion.bash"
 fi
-bind -x '"\t": fzf_bash_completion'
+# bind -x '"\t": fzf_bash_completion'
 
 # fzf-marks
 if [[ -f "$HOME/.github/fzf-marks/fzf-marks.plugin.bash"  ]]; then
