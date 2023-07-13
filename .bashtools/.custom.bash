@@ -51,25 +51,30 @@ _fzf_comprun() {
   esac
 }
 
-# source /usr/share/doc/fzf/examples/key-bindings.bash
+source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # fzf tab completion
-# source "$HOME/.bashtools/fzf-bash-completion.sh"
-# bind -x '"\t": fzf_bash_completion'
+if [[ -f "$HOME/.github/fzf/shell/completion.bash" ]]; then
+    source "$HOME/.github/fzf/shell/completion.bash"
+fi
+bind -x '"\t": fzf_bash_completion'
 
 # fzf-marks
-source "$HOME/.github/fzf-marks/fzf-marks.plugin.bash"
+if [[ -f "$HOME/.github/fzf-marks/fzf-marks.plugin.bash"  ]]; then
+    source "$HOME/.github/fzf-marks/fzf-marks.plugin.bash"
+fi
 
 # keybinds
 bind -x '"\C-f":"tmux-sessionizer"'
-# BEGIN ANSIBLE MANAGED BLOCK
+
 # dotbare
 # SOURCE: https://github.com/kazhala/dotbare
-source $HOME/.github/dotbare/dotbare.plugin.bash
+if [[ -f "$HOME/.github/dotbare/dotbare.plugin.bash" ]]; then
+    source "$HOME/.github/dotbare/dotbare.plugin.bash"
+fi
 export DOTBARE_DIR="$HOME/.dotfiles"
 export DOTBARE_TREE="$HOME"
-export DOTBARE_FZF_DEFAULT_OPTS="--preview-window=right:65%"
+export DOTBARE_FZF_DEFAULT_OPTS="--preview-window=nohidden --preview-window=right:50%"
 export EDITOR='nvim'
 alias dots=dotbare
 bind -x '"\C-n":"dotbare fedit"'
-# END ANSIBLE MANAGED BLOCK
