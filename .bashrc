@@ -9,9 +9,6 @@ bind 'set show-mode-in-prompt on'
 bind 'set vi-ins-mode-string ""'
 bind 'set vi-cmd-mode-string ""'
 
-# Ensures I am always in a TMUX session
-# ~/.local/bin/ta
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -115,31 +112,6 @@ _fzf_comprun() {
   esac
 }
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-# alias ll='ls -alF'
-# alias la='ls -A'
-# alias l='ls -CF'
-# alias clear='clear -x'
-# alias cl='clear -x'
-# alias vi='vim'
-# alias v='nvim'
-# alias ..='cd ..'
-# alias reload='source ~/.bashrc'
-# alias g='git'
-# alias gs='git status'
-# alias ga='git add'
-# alias gcom='git commit -v'
-# alias gp='git push'
-# alias apconfig='sudo ansible-pull -U https://github.com/eb0687/ansible_server.git'
-# alias f='fzf'
-# alias tm='tmat'
-# alias tma='tmux attach'
-# alias tmd='tmux detach'
-# alias tmls='tmux list-session'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -149,18 +121,16 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-
-if [ -f ~/.bashtools/.alias.bash ]; then
-    . ~/.bashtools/.alias.bash
-fi
-
-if [ -f ~/.bashtools/.functions.bash ]; then
-    . ~/.bashtools/.functions.bash
-fi
-
-if [ -f ~/.bashtools/.custom.bash ]; then
-    . ~/.bashtools/.custom.bash
-fi
+# shellcheck source="/dev/null"
+BASH_CUSTOM=(
+    "$HOME/.bashtools/.alias.bash"
+    "$HOME/.bashtools/.custom.bash"
+    "$HOME/.bashtools/.functions.bash"
+    )
+for file in "${BASH_CUSTOM[@]}"
+do
+    [ -f "$file" ] && source "$file"
+done
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -177,58 +147,12 @@ fi
 if [ -z ${TMUX+x} ]; then
     # Not in a TMUX session
     if [ ! -S ~/.ssh/ssh_auth_sock ] && [ -S "$SSH_AUTH_SOCK" ]; then
-        ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+        ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
     fi
 else
     # In TMUX session
     export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 fi
-
-# # starship config
-# export STARSHIP_CONFIG=~/.config/starship/starship.toml
-# eval "$(starship init bash)"
-
-# # pfetch
-# PF_ASCII=ubuntu pfetch
-
-# # fzf
-# export FZF_DEFAULT_COMMAND="fdfind --type f --color=never --hidden --exclude .git --search-path=$HOME"
-# export FZF_DEFAULT_OPTS="
-# --layout=reverse
-# --height 100%
-# --info=inline
-# --no-unicode
-# --margin=2,5
-# --preview-window=:hidden
-# --color fg:#DFBF8E,hl:#E78A4E,fg+:#E78A4E,bg+:#3C3836,hl+:#89B482,border:#DFBF8E
-# --color info:#E78A4E,prompt:#EA6962,spinner:#EA6962,pointer:#EA6962,marker:#EA6962
-# --prompt=' '
-# --header='FZF'
-# --bind '?:toggle-preview'
-# --bind 'ctrl-t:execute(echo {+} | xargs -o nvim)'
-# "
-# # --color fg:#DFBF8E,bg:#1D2021,hl:#E78A4E,fg+:#DFBF8E,bg+:#32302F,hl+:#EA6962,border:#DFBF8E
-
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_CTRL_T_OPTS="
-#         --bind '?:toggle-preview'
-#         --header='SEARCH FILES'
-#         "
-
-# export FZF_ALT_C_COMMAND='fdfind --type d --color=never --hidden --exclude .git --search-path=$HOME'
-# export FZF_ALT_C_OPTS="
-#         --preview 'tree -C {} | head  -50'
-#         --header='CHANGE DIRECTORY'
-#         "
-
-# source /usr/share/doc/fzf/examples/key-bindings.bash
-
-# # fzf tab completion
-# source ~/.bashtools/fzf-bash-completion.sh
-# bind -x '"\t": fzf_bash_completion'
-
-# # keybinds
-# bind -x '"\C-f":"tmux-sessionizer"'
 
 # alias for git bare repo
 alias dot='/usr/bin/git --git-dir=/home/eb/.dotfiles --work-tree=/home/eb'

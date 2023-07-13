@@ -1,41 +1,3 @@
-# # find out which distribution we are running on
-# LFILE="/etc/*-release"
-# MFILE="/System/Library/CoreServices/SystemVersion.plist"
-# if [[ -f $LFILE ]]; then
-#   _distro=$(awk '/^ID=/' /etc/*-release | awk -F'=' '{ print tolower($2) }')
-# elif [[ -f $MFILE ]]; then
-#   _distro="macos"
-# fi
-
-# # set an icon based on the distro
-# # make sure your font is compatible with https://github.com/lukas-w/font-logos
-# case $_distro in
-#     *kali*)                  ICON="ﴣ";;
-#     *arch*)                  ICON="";;
-#     *debian*)                ICON="";;
-#     *raspbian*)              ICON="";;
-#     *ubuntu*)                ICON="";;
-#     *elementary*)            ICON="";;
-#     *fedora*)                ICON="";;
-#     *coreos*)                ICON="";;
-#     *gentoo*)                ICON="";;
-#     *mageia*)                ICON="";;
-#     *centos*)                ICON="";;
-#     *opensuse*|*tumbleweed*) ICON="";;
-#     *sabayon*)               ICON="";;
-#     *slackware*)             ICON="";;
-#     *linuxmint*)             ICON="";;
-#     *alpine*)                ICON="";;
-#     *aosc*)                  ICON="";;
-#     *nixos*)                 ICON="";;
-#     *devuan*)                ICON="";;
-#     *manjaro*)               ICON="";;
-#     *rhel*)                  ICON="";;
-#     *macos*)                 ICON="";;
-#     *)                       ICON="";;
-# esac
-
-
 # starship config
 export STARSHIP_DISTRO=""
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -60,7 +22,6 @@ export FZF_DEFAULT_OPTS="
 --bind '?:toggle-preview'
 --bind 'ctrl-t:execute(echo {+} | xargs -o nvim)'
 "
-# --color fg:#DFBF8E,bg:#1D2021,hl:#E78A4E,fg+:#DFBF8E,bg+:#32302F,hl+:#EA6962,border:#DFBF8E
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="
@@ -90,14 +51,14 @@ _fzf_comprun() {
   esac
 }
 
-source /usr/share/doc/fzf/examples/key-bindings.bash
+# source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # fzf tab completion
-source $HOME/.bashtools/fzf-bash-completion.sh
-bind -x '"\t": fzf_bash_completion'
+# source "$HOME/.bashtools/fzf-bash-completion.sh"
+# bind -x '"\t": fzf_bash_completion'
 
 # fzf-marks
-source $HOME/.github/fzf-marks/fzf-marks.plugin.bash
+source "$HOME/.github/fzf-marks/fzf-marks.plugin.bash"
 
 # keybinds
 bind -x '"\C-f":"tmux-sessionizer"'
