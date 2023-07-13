@@ -156,3 +156,5 @@ fi
 
 # alias for git bare repo
 alias dot='/usr/bin/git --git-dir=/home/eb/.dotfiles --work-tree=/home/eb'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

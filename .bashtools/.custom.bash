@@ -51,13 +51,14 @@ _fzf_comprun() {
   esac
 }
 
-source /usr/share/doc/fzf/examples/key-bindings.bash
+if [[ -f "/usr/share/doc/fzf/examples/key-bindings.bash" ]]; then
+    source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
 
 # fzf tab completion
-if [[ -f "$HOME/.github/fzf/shell/completion.bash" ]]; then
-    source "$HOME/.github/fzf/shell/completion.bash"
-fi
-# bind -x '"\t": fzf_bash_completion'
+source $HOME/.bashtools/fzf-bash-completion.sh
+bind -x '"\t": fzf_bash_completion'
+
 
 # fzf-marks
 if [[ -f "$HOME/.github/fzf-marks/fzf-marks.plugin.bash"  ]]; then
