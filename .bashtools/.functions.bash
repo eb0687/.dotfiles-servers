@@ -17,7 +17,7 @@ function cu {
 
 # FZF functions
 open-at-line () {
-  nvim $(rg --line-number . | fzf --delimiter ':' --preview 'bat --color=always --highlight-line {2} {1}' | awk -F ':' '{print "+"$2" "$1}')
+    nvim $(rg --line-number . | fzf --delimiter ':' --preview 'bat --color=always --highlight-line {2} {1}' | awk -F ':' '{print "+"$2" "$1}')
 }
 
 function falias(){
@@ -51,4 +51,9 @@ ansible-role-fd() {
 function cl () {
     clear -x
     ls -lFh --group-directories-first
+}
+
+fixssh() {
+    eval "$(tmux show-env \
+        |sed -n 's/^\(SSH_[^=]*\)=\(.*\)/export \1="\2"/p')"
 }
