@@ -66,7 +66,17 @@ if [[ -f "$HOME/.github/fzf-marks/fzf-marks.plugin.bash"  ]]; then
 fi
 
 # keybinds
-bind -x '"\C-f":"tmux-sessionizer"'
+bind -x '"\C-f":"t"'
+
+# zoxide
+export _ZO_ECHO='1'
+eval "$(zoxide init bash)"
+
+# TMUX session manager
+export T_SESSION_NAME_INCLUDE_PARENT="true"
+export T_SESSION_NAME_INCLUDE_PARENT="true"
+# BUG: works outside tmux, but breaks the title when in a tmux session
+# export T_FZF_BORDER_LABEL=' Session Manager '
 
 # dotbare
 # SOURCE: https://github.com/kazhala/dotbare
