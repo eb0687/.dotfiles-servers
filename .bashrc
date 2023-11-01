@@ -5,9 +5,13 @@
 ###################################################################################
 
 set -o vi
-bind 'set show-mode-in-prompt on'
-bind 'set vi-ins-mode-string ""'
-bind 'set vi-cmd-mode-string ""'
+# bind 'set show-mode-in-prompt on'
+# bind 'set vi-ins-mode-string ""'
+# bind 'set vi-cmd-mode-string ""'
+
+# Custom paths
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
