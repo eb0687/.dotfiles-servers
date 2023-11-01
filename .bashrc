@@ -161,4 +161,11 @@ fi
 # alias for git bare repo
 alias dot='/usr/bin/git --git-dir=/home/eb/.dotfiles --work-tree=/home/eb'
 
+# make a symbolic link for fd
+if [[ -f /usr/bin/fdfind ]]; then
+    if [[ ! -h ~/.local/bin/fd ]]; then
+        ln -s "$(which fdfind)" ~/.local/bin/fd
+    fi
+fi
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
