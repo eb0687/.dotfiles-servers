@@ -161,6 +161,10 @@ fi
 # alias for git bare repo
 alias dot='/usr/bin/git --git-dir=/home/eb/.dotfiles --work-tree=/home/eb'
 
+if [[ -n $(dot fetch) ]]; then
+    dot pull
+fi
+
 # make a symlink link for fd
 if [[ -f /usr/bin/fdfind ]]; then
     if [[ ! -h ~/.local/bin/fd ]]; then
