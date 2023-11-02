@@ -178,3 +178,5 @@ if [[ ! -f ~/.fzf.bash ]]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# this is a test from ansible
