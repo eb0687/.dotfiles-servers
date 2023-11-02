@@ -106,14 +106,14 @@ fi
 # - The first argument to the function is the name of the command.
 # - You should make sure to pass the rest of the arguments to fzf.
 _fzf_comprun() {
-  local command=$1
-  shift
+    local command=$1
+    shift
 
-  case "$command" in
-    cd)           fzf --preview-window=nohidden --preview 'tree -C {} | head -200'   "$@" ;;
-    export|unset) fzf --preview-window=nohidden --preview "eval 'echo \$'{}"         "$@" ;;
-    ssh)          fzf --preview-window=nohidden --preview 'dig {}'                   "$@" ;;
-  esac
+    case "$command" in
+        cd)           fzf --preview-window=nohidden --preview 'tree -C {} | head -200'   "$@" ;;
+        export|unset) fzf --preview-window=nohidden --preview "eval 'echo \$'{}"         "$@" ;;
+        ssh)          fzf --preview-window=nohidden --preview 'dig {}'                   "$@" ;;
+    esac
 }
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -130,7 +130,7 @@ BASH_CUSTOM=(
     "$HOME/.bashtools/.alias.bash"
     "$HOME/.bashtools/.custom.bash"
     "$HOME/.bashtools/.functions.bash"
-    )
+)
 for file in "${BASH_CUSTOM[@]}"
 do
     [ -f "$file" ] && source "$file"
@@ -161,11 +161,11 @@ fi
 # alias for git bare repo
 alias dot='/usr/bin/git --git-dir=/home/eb/.dotfiles --work-tree=/home/eb'
 
-fetch_updates=$(dot fetch)
-if [[ -n $fetch_updates ]]; then
-    dot fetch
-    dot pull
-fi
+# if [[ -d "$HOME/.dotfiles" ]]; then
+#     echo -e '󰊢 Fetching dotfile updates...'
+#     dot fetch && dot pull &>/tmp/dotfiles.log
+#     echo  -e '󰊢 Done..check /tmp/dotfiles.log for any errors'
+# fi
 
 # make a symlink link for fd
 if [[ -f /usr/bin/fdfind ]]; then
