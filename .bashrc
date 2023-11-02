@@ -161,7 +161,9 @@ fi
 # alias for git bare repo
 alias dot='/usr/bin/git --git-dir=/home/eb/.dotfiles --work-tree=/home/eb'
 
-if [[ -n $(dot fetch) ]]; then
+fetch_updates=$(dot fetch)
+if [[ -n $fetch_updates ]]; then
+    dot fetch
     dot pull
 fi
 
@@ -178,5 +180,3 @@ if [[ ! -f ~/.fzf.bash ]]; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# this is a test from ansible
