@@ -168,4 +168,9 @@ if [[ -f /usr/bin/fdfind ]]; then
     fi
 fi
 
+if [[ ! -f ~/.fzf.bash ]]; then
+    cd ~/.github/fzf/ || exit
+    bash install
+fi
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
