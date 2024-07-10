@@ -12,6 +12,7 @@ set -o vi
 # Custom paths
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
