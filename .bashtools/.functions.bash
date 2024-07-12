@@ -50,7 +50,7 @@ ansible-role-fd() {
 # a better clear command
 function cl () {
     clear -x
-    ls -lFh --group-directories-first
+    eza -F -l --color=always --icons=always --no-time --no-filesize --no-permissions --no-user --group-directories-first --sort=modified
 }
 
 fixssh() {
