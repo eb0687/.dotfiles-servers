@@ -197,3 +197,7 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f /var/run/reboot-required ]; then
   echo 'reboot required'
 fi
+
+if [[ -d "$HOME/.cargo/env" ]]; then
+    . "$HOME/.cargo/env"
+fi
