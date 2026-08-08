@@ -15,8 +15,9 @@ export FZF_DEFAULT_OPTS="
 --no-unicode
 --margin=2,5
 --preview-window=:hidden
---color fg:#DFBF8E,hl:#E78A4E,fg+:#E78A4E,bg+:#3C3836,hl+:#89B482,border:#DFBF8E
+--color fg:#DFBF8E,hl:#E78A4E,fg+:#E78A4E,bg+:#3C3836,hl+:#89B482,border:#7DAEA3
 --color info:#E78A4E,prompt:#EA6962,spinner:#EA6962,pointer:#EA6962,marker:#EA6962
+--color border:#7DAEA3
 --prompt=' '
 --header='FZF'
 --bind '?:toggle-preview'
