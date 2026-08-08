@@ -204,3 +204,7 @@ fi
 if [[ -d "$HOME/.cargo/env" ]]; then
     . "$HOME/.cargo/env"
 fi
+
+if command -v /home/eb/.opencode/bin/opencode >/dev/null 2>&1; then
+    export PATH=/home/eb/.opencode/bin:$PATH
+fi
