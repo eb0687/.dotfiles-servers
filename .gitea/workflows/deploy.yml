@@ -10,7 +10,7 @@ jobs:
     name: Request central deployment
     runs-on: ubuntu-latest
     steps:
-      - name: Dispatch the approved dotfiles target
+      - name: Dispatch the approved server-dotfiles target
         env:
           CONTROL_REPOSITORY_WORKFLOW_TOKEN: ${{ secrets.CONTROL_REPOSITORY_WORKFLOW_TOKEN }}
         run: |
