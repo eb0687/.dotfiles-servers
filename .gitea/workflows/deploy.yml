@@ -1,0 +1,21 @@
+---
+name: Deploy server dotfiles
+
+'on':
+  push:
+    branches: [main]
+
+jobs:
+  deployment-request:
+    name: Request central deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch the approved dotfiles target
+        env:
+          CONTROL_REPOSITORY_WORKFLOW_TOKEN: ${{ secrets.CONTROL_REPOSITORY_WORKFLOW_TOKEN }}
+        run: |
+          curl --fail-with-body --request POST \
+            --header "Authorization: token $CONTROL_REPOSITORY_WORKFLOW_TOKEN" \
+            --header "Content-Type: application/json" \
+            --data '{"ref":"main","inputs":{"target":"dotfiles","repository":"bigboss/.dotfiles-server"}}' \
+            https://gitea.sooper.duckdns.org/api/v1/repos/bigboss/ansible-automation-infra/actions/workflows/deploy.yml/dispatches
