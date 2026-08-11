@@ -4,7 +4,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 
 # pfetch
-PF_ASCII=ubuntu pfetch
+# PF_ASCII=ubuntu pfetch
 
 # fzf
 export FZF_DEFAULT_COMMAND="fdfind --type f --color=never --hidden --exclude .git --search-path=$HOME"
